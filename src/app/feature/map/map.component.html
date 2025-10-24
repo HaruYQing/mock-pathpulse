@@ -1,0 +1,71 @@
+<main>
+  <div class="upper">
+    <div class="input-container">
+      <input type="text" />
+    </div>
+
+    <div class="upper-right">
+      <div class="btn-container">
+        <div class="btn">
+          <img src="/icon-a.png" />
+        </div>
+
+        <div class="btn">
+          <img src="/icon-b.png" />
+        </div>
+
+        @if(isBtnActivated()) {
+        <div class="btn active" (click)="toggleActive()">
+          <img src="/icon-c-active.png" />
+        </div>
+        } @else {
+        <div class="btn" (click)="toggleActive()">
+          <img src="/icon-c.png" />
+        </div>
+        }
+
+        <div class="btn">
+          <img src="/icon-d.png" />
+        </div>
+      </div>
+
+      @if(isBtnActivated()) {
+      <div class="setting-container">
+        <h2 class="serif-font">改變定位</h2>
+
+        <div class="route">
+          <p class="serif-font">路線：</p>
+
+          <div class="address">
+            <img src="/icon-down.png" />
+
+            <div class="address-text">
+              <span class="word serif-font">中興南路二段83號</span>
+              <span class="digit">24.89017345.172.3901</span>
+            </div>
+          </div>
+
+          <div class="location">
+            <img src="/icon-pin.png" />
+            <div class="vert-divider"></div>
+          </div>
+        </div>
+
+        <div class="distance">
+          <img src="/icon-route.png" />
+          <p class="serif-font">距離：</p>
+        </div>
+
+        <div class="setting-btn-group">
+          <button type="button" class="serif-font">移動</button>
+          <button type="button" class="serif-font">清除</button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="lower">
+    <img src="/icon-group-bottom.png" />
+  </div>
+</main>

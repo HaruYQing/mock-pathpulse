@@ -1,0 +1,192 @@
+main {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  background-image: url("/map.webp");
+  background-position: bottom;
+  background-size: contains;
+  position: relative;
+
+  .upper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+
+    .input-container {
+      box-sizing: border-box;
+      position: relative;
+      height: fit-content;
+      width: 680px;
+
+      input {
+        border: none;
+        border-radius: 6px;
+        width: 680px;
+        height: 60px;
+        box-shadow: 6px 6px 10px 0 rgba(142, 142, 142, 0.75);
+
+        &:focus {
+          outline: none;
+          border: 0.5px solid rgba(142, 142, 142, 0.75);
+        }
+      }
+    }
+
+    .upper-right {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: center;
+      gap: 24px;
+
+      .btn-container {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 6px;
+        padding: 0 8px;
+        background-color: white;
+        box-shadow: 6px 6px 10px 0 rgba(142, 142, 142, 0.75);
+
+        .btn {
+          cursor: pointer;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+          border: 2px solid rgba(142, 142, 142, 0);
+          border-radius: 6px;
+
+          &:hover {
+            border: 2px solid #3d62a3;
+          }
+
+          &.active {
+            background-color: #3d62a3;
+            border: 2px solid #3d62a3;
+          }
+        }
+      }
+
+      .setting-container {
+        box-sizing: border-box;
+        width: 400px;
+        box-shadow: 6px 6px 8px 0 rgba(112, 112, 112, 0.75);
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        h2 {
+          color: #21558e;
+        }
+
+        p {
+          font-size: 24px;
+          font-weight: 700;
+          color: #707070;
+        }
+
+        img {
+          height: 44px;
+          width: 44px;
+        }
+
+        .route,
+        .distance {
+          box-sizing: border-box;
+          width: 100%;
+          background-color: #f4f4f4;
+          display: flex;
+        }
+
+        .route {
+          box-sizing: border-box;
+          flex-direction: column;
+          gap: 8px;
+          padding: 16px;
+
+          .address,
+          .location {
+            display: flex;
+            align-items: center;
+
+            .address-text {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              margin-left: 8px;
+
+              .word {
+                color: #707070;
+                font-size: 18px;
+                font-weight: 700;
+              }
+
+              .digit {
+                color: #9b9b9b;
+                font-weight: 500;
+              }
+            }
+
+            .vert-divider {
+              height: 24px;
+              border-left: 1px solid #c9c9c9;
+            }
+          }
+        }
+
+        .distance {
+          box-sizing: border-box;
+          padding: 16px;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .setting-btn-group {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          button {
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 8px 36px;
+
+            &:nth-of-type(1) {
+              border: 2px solid #21558e;
+              background-color: #21558e;
+              color: white;
+            }
+
+            &:nth-of-type(2) {
+              border: 2px solid #21558e;
+              background-color: white;
+              color: #21558e;
+            }
+
+            &:active {
+              opacity: 0.75;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lower {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+  }
+}
