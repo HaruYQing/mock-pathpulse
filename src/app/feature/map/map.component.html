@@ -1,7 +1,59 @@
 <main>
   <div class="upper">
-    <div class="input-container">
-      <input type="text" />
+    <div class="input-container" [formGroup]="form" [class.show]="hasInputValue()">
+      <div class="icon-container">
+        <img src="/icon-search.png" />
+      </div>
+
+      <input #searchInput type="text" class="serif-font" placeholder="輸入地址/GPS" formControlName="searchCtrl" />
+      @if(showList()) {
+      <div class="list">
+        <div class="item">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段83號205巷
+          </span>
+        </div>
+        <div class="item">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段83號185巷
+          </span>
+        </div>
+        <div class="item">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段83號185巷
+          </span>
+        </div>
+        <div class="item">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段100號
+          </span>
+        </div>
+        <div class="item" (click)="onSelectAddress()">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段185號
+          </span>
+        </div>
+        <div class="item">
+          <img src="/icon-option.png" />
+          <span class="serif-font">
+            民安三路一段200號
+          </span>
+        </div>
+      </div>
+      }
+
+      <div class="img-container">
+        @if(hasInputValue()) {
+        <img src="/icon-enter-active.png" />
+        } @else {
+        <img src="/icon-enter.png" />
+        }
+      </div>
     </div>
 
     <div class="upper-right">
@@ -47,18 +99,32 @@
 
           <div class="location">
             <img src="/icon-pin.png" />
+
+            @if(hasGotResult()) {
+            <div class="location-text">
+              <span class="word serif-font">民安三路一段185號</span>
+              <span class="digit">24.00717652.118.2091</span>
+            </div>
+            } @else {
             <div class="vert-divider"></div>
+            }
           </div>
         </div>
 
         <div class="distance">
           <img src="/icon-route.png" />
-          <p class="serif-font">距離：</p>
+          <p class="serif-font">距離：
+            @if(hasGotResult()) {
+            <span>
+              42km
+            </span>
+            }
+          </p>
         </div>
 
         <div class="setting-btn-group">
           <button type="button" class="serif-font">移動</button>
-          <button type="button" class="serif-font">清除</button>
+          <button type="button" class="serif-font" (click)="resetSelect()">清除</button>
         </div>
       </div>
       }

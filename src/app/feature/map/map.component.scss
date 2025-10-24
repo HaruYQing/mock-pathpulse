@@ -19,18 +19,94 @@ main {
       box-sizing: border-box;
       position: relative;
       height: fit-content;
+      display: flex;
+      align-items: center;
       width: 680px;
 
+      .icon-container {
+        position: absolute;
+        left: 8px;
+        display: none;
+      }
+
       input {
+        box-sizing: border-box;
         border: none;
         border-radius: 6px;
         width: 680px;
         height: 60px;
         box-shadow: 6px 6px 10px 0 rgba(142, 142, 142, 0.75);
+        font-size: 24px;
+        font-weight: 600;
+        padding: 0 16px;
+        color: #707070;
 
         &:focus {
           outline: none;
-          border: 0.5px solid rgba(142, 142, 142, 0.75);
+          //   border: 0.5px solid rgba(142, 142, 142, 0.75);
+        }
+      }
+
+      .list {
+        z-index: 10;
+        box-sizing: border-box;
+        position: absolute;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        top: 52px;
+        left: 0;
+        border-radius: 0 0 6px 6px;
+        padding: 16px 0;
+        width: 680px;
+        box-shadow: 6px 12px 10px 0 rgba(142, 142, 142, 0.75);
+
+        .item {
+          box-sizing: border-box;
+          cursor: default;
+          color: #707070;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 0 8px 8px;
+
+          &:hover {
+            background-color: #efefef;
+          }
+
+          img {
+            height: 36px;
+          }
+
+          span {
+            font-size: 24px;
+            font-weight: 600px;
+          }
+        }
+      }
+
+      .img-container {
+        border-left: 1px solid #c9c9c9;
+        cursor: pointer;
+        box-sizing: border-box;
+        padding: 4px 8px 4px 16px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 8px;
+      }
+
+      &.show {
+        .icon-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        input {
+          padding: 0 72px 0 54px;
         }
       }
     }
@@ -119,10 +195,11 @@ main {
             display: flex;
             align-items: center;
 
-            .address-text {
+            .address-text,
+            .location-text {
               display: flex;
               flex-direction: column;
-              gap: 8px;
+              gap: 4px;
               margin-left: 8px;
 
               .word {
